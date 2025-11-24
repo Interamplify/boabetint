@@ -4,11 +4,73 @@ import Link from 'next/link';
 import { getDictionary, Locale } from '@/lib/dictionaries';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ArrowRight } from 'lucide-react';
+import {
+  ChevronDown,
+  Trophy,
+  Timer,
+  Gamepad2,
+  Gift,
+  Calendar,
+  Monitor,
+  CreditCard,
+  HelpCircle,
+  ShieldCheck,
+  FileText,
+  Info,
+  Dribbble,
+  Target,
+  Swords,
+  Hammer,
+  Flag,
+  Car,
+  CircleDollarSign,
+  Wallet,
+  Banknote,
+  Bitcoin,
+  Smartphone
+} from 'lucide-react';
+
+// Helper to map text to icons
+const getIconForMenuItem = (text: string) => {
+  const lowerText = text.toLowerCase();
+
+  // Sports
+  if (lowerText.includes('football')) return <Trophy size={18} />;
+  if (lowerText.includes('basketball')) return <Dribbble size={18} />;
+  if (lowerText.includes('tennis')) return <Target size={18} />;
+  if (lowerText.includes('mma') || lowerText.includes('boxing')) return <Swords size={18} />;
+  if (lowerText.includes('cricket')) return <Hammer size={18} />; // Approximation
+  if (lowerText.includes('golf')) return <Flag size={18} />;
+  if (lowerText.includes('formula')) return <Car size={18} />;
+  if (lowerText.includes('in-play')) return <Timer size={18} />;
+
+  // Esports
+  if (lowerText.includes('esports') || lowerText.includes('league') || lowerText.includes('dota') || lowerText.includes('cs2')) return <Monitor size={18} />;
+
+  // Promotions
+  if (lowerText.includes('bonus') || lowerText.includes('free') || lowerText.includes('promotion')) return <Gift size={18} />;
+
+  // Daily Picks
+  if (lowerText.includes('pick')) return <Calendar size={18} />;
+
+  // Payments
+  if (lowerText.includes('bitcoin')) return <Bitcoin size={18} />;
+  if (lowerText.includes('paypal') || lowerText.includes('skrill') || lowerText.includes('neteller')) return <Wallet size={18} />;
+  if (lowerText.includes('card') || lowerText.includes('revolut')) return <CreditCard size={18} />;
+  if (lowerText.includes('deposit')) return <Banknote size={18} />;
+
+  // Legal
+  if (lowerText.includes('about')) return <Info size={18} />;
+  if (lowerText.includes('responsible')) return <ShieldCheck size={18} />;
+  if (lowerText.includes('terms') || lowerText.includes('privacy')) return <FileText size={18} />;
+
+  // Default
+  return <CircleDollarSign size={18} />;
+};
 
 export default function Header({ lang }: { lang: Locale }) {
   const dict = getDictionary(lang);
-  const { navigation, branding } = dict;
+  const { navigation } = dict;
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
 
   return (
@@ -17,7 +79,7 @@ export default function Header({ lang }: { lang: Locale }) {
       <div className="bg-boabet-green text-white py-3 px-4 md:px-8 relative z-50">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <Link href={`/${lang}`} className="text-2xl font-bold italic tracking-tighter flex items-center gap-1">
-            {branding.name.split(' ')[0]}<span className="text-boabet-yellow">{branding.name.split(' ')[1]}</span>
+            Boa<span className="text-boabet-yellow">Bet</span>
           </Link>
 
           <div className="flex items-center gap-4">
@@ -42,7 +104,7 @@ export default function Header({ lang }: { lang: Locale }) {
                 onMouseEnter={() => setActiveMenu(key)}
               >
                 <button
-                  className={`flex items-center gap-1.5 uppercase tracking-wider text-xs font-bold transition-all duration-200 px-2 py-1 rounded-md ${activeMenu === key ? 'text-boabet-yellow bg-white/10' : 'text-gray-300 hover:text-white'}`}
+                  className={`flex items-center gap-1.5 uppercase tracking-wider text-xs font-bold transition-all duration-200 px-3 py-1.5 rounded-md ${activeMenu === key ? 'text-boabet-yellow bg-white/10' : 'text-gray-300 hover:text-white'}`}
                 >
                   {section.title}
                   <ChevronDown size={12} className={`transition-transform duration-200 ${activeMenu === key ? 'rotate-180' : ''}`} />
@@ -61,46 +123,24 @@ export default function Header({ lang }: { lang: Locale }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="absolute left-0 w-full bg-white border-b border-gray-200 shadow-2xl py-10 z-30"
+            className="absolute left-0 w-full bg-white border-b border-gray-100 shadow-xl py-8 z-30"
             onMouseEnter={() => setActiveMenu(activeMenu)}
             onMouseLeave={() => setActiveMenu(null)}
           >
             <div className="max-w-7xl mx-auto px-4 md:px-8">
-              <div className="flex gap-12">
-                {/* Main Links Area */}
-                <div className="flex-grow grid grid-cols-4 gap-y-6 gap-x-8">
-                  {navigation[activeMenu as keyof typeof navigation].items.map((item, index) => (
-                    <Link
-                      key={index}
-                      href={item.href}
-                      className="group flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors"
-                    >
-                      <div className="w-2 h-2 rounded-full bg-gray-300 group-hover:bg-boabet-green transition-colors shadow-sm" />
-                      <span className="font-medium text-gray-700 group-hover:text-boabet-green transition-colors">{item.text}</span>
-                    </Link>
-                  ))}
-                </div>
-
-                {/* Featured / Promo Area */}
-                <div className="w-72 flex-shrink-0">
-                  <div className="bg-gradient-to-br from-gray-900 to-boabet-dark rounded-xl p-6 text-white shadow-lg h-full flex flex-col justify-between relative overflow-hidden group">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-boabet-green/20 rounded-full blur-3xl -mr-16 -mt-16 transition-all duration-500 group-hover:bg-boabet-green/30" />
-
-                    <div className="relative z-10">
-                      <h4 className="font-bold text-xl mb-2 text-boabet-yellow">{navigation[activeMenu as keyof typeof navigation].title}</h4>
-                      <p className="text-sm text-gray-300 leading-relaxed mb-6">
-                        Discover the best odds and exclusive offers available right now.
-                      </p>
+              <div className="grid grid-cols-4 gap-6">
+                {navigation[activeMenu as keyof typeof navigation].items.map((item, index) => (
+                  <Link
+                    key={index}
+                    href={item.href}
+                    className="group flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-all duration-200 border border-transparent hover:border-gray-100"
+                  >
+                    <div className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-boabet-green group-hover:text-white transition-colors duration-200 shadow-sm">
+                      {getIconForMenuItem(item.text)}
                     </div>
-
-                    <Link
-                      href={`/${lang}`}
-                      className="relative z-10 inline-flex items-center gap-2 text-sm font-bold text-white hover:text-boabet-yellow transition-colors group/link"
-                    >
-                      View All Markets <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
-                    </Link>
-                  </div>
-                </div>
+                    <span className="font-semibold text-gray-700 group-hover:text-boabet-green transition-colors text-sm">{item.text}</span>
+                  </Link>
+                ))}
               </div>
             </div>
           </motion.div>

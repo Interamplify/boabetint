@@ -20,20 +20,6 @@ const categories = [
         color: "text-green-600 bg-green-50"
     },
     {
-        title: "Casino",
-        icon: <Dices size={28} />,
-        description: "Slots & Games",
-        href: "casino",
-        color: "text-purple-600 bg-purple-50"
-    },
-    {
-        title: "Live Casino",
-        icon: <Spade size={28} />,
-        description: "Real Dealers",
-        href: "live-casino",
-        color: "text-red-600 bg-red-50"
-    },
-    {
         title: "Promotions",
         icon: <Gift size={28} />,
         description: "Daily Offers",
@@ -63,7 +49,7 @@ export default function CategoryGrid({ lang }: { lang: string }) {
             variants={container}
             initial="hidden"
             animate="show"
-            className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-12"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-5xl mx-auto"
         >
             {categories.map((cat, index) => (
                 <motion.div key={index} variants={item} className="h-full">

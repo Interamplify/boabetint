@@ -37,8 +37,8 @@ export default async function Page({ params }: { params: Promise<{ lang: Locale 
             <LiveBettingFeature content={dict.liveBetting} />
 
             {/* Additional Content Section */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 mt-12">
-                <div className="md:col-span-2 bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <div className="max-w-5xl mx-auto mb-8 mt-12">
+                <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                     <h2 className="text-xl font-bold mb-4 text-gray-800">Featured Matches</h2>
                     <div className="space-y-4">
                         {[1, 2, 3].map((match) => (
@@ -56,26 +56,12 @@ export default async function Page({ params }: { params: Promise<{ lang: Locale 
                         ))}
                     </div>
                 </div>
-
-                <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                    <h2 className="text-xl font-bold mb-4 text-gray-800">Casino Top Picks</h2>
-                    <div className="grid grid-cols-2 gap-4">
-                        {[1, 2, 3, 4].map((game) => (
-                            <div key={game} className="aspect-square bg-gray-200 rounded-lg relative overflow-hidden group cursor-pointer">
-                                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                    <span className="text-white font-bold text-sm bg-boabet-green px-3 py-1 rounded-full">Play</span>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
             </div>
 
             <WhyChooseUs content={dict.whyChooseUs} />
 
             <SecurityTrust content={dict.securityTrust} />
 
-            <SEOContent content={dict.seoContent} />
             <FAQ content={dict.faq} />
         </div>
     );

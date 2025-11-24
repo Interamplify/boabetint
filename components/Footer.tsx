@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CreditCard, Wallet, Banknote, Bitcoin } from 'lucide-react';
 
 export default function Footer({ }: { lang: string }) {
     return (
@@ -30,11 +31,11 @@ export default function Footer({ }: { lang: string }) {
                 </div>
                 <div>
                     <h3 className="text-white font-bold mb-4">Payment Methods</h3>
-                    <div className="flex gap-2">
-                        {/* Placeholders for payment icons */}
-                        <div className="w-10 h-6 bg-gray-600 rounded"></div>
-                        <div className="w-10 h-6 bg-gray-600 rounded"></div>
-                        <div className="w-10 h-6 bg-gray-600 rounded"></div>
+                    <div className="flex gap-4 text-gray-400">
+                        <CreditCard size={24} className="hover:text-white transition-colors" />
+                        <Wallet size={24} className="hover:text-white transition-colors" />
+                        <Banknote size={24} className="hover:text-white transition-colors" />
+                        <Bitcoin size={24} className="hover:text-white transition-colors" />
                     </div>
                 </div>
             </div>
