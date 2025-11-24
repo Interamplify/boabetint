@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  
+  /* Boabet Custom Colors */
+  --boabet-green: #008f5d;
+  --boabet-dark: #1a2c38;
+  --boabet-yellow: #f5a623;
+  --boabet-bg: #f4f4f4;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  --color-boabet-green: var(--boabet-green);
+  --color-boabet-dark: var(--boabet-dark);
+  --color-boabet-yellow: var(--boabet-yellow);
+  --color-boabet-bg: var(--boabet-bg);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
