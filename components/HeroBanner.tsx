@@ -15,13 +15,13 @@ export default function HeroBanner() {
             {/* Background Pattern - Simple and replicable */}
             <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
 
-            <div className="relative z-10 px-8 py-16 md:px-16 md:py-20 flex flex-col md:flex-row items-center justify-between gap-12">
+            <div className="relative z-10 px-6 py-10 md:px-16 md:py-20 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
                 <div className="max-w-xl text-center md:text-left">
                     <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="inline-block bg-white/10 backdrop-blur-sm border border-white/20 text-white text-xs font-bold px-4 py-1.5 rounded-full mb-6 uppercase tracking-wider"
+                        className="inline-block bg-white/10 backdrop-blur-sm border border-white/20 text-white text-[10px] md:text-xs font-bold px-3 py-1 md:px-4 md:py-1.5 rounded-full mb-4 md:mb-6 uppercase tracking-wider"
                     >
                         New Customer Offer
                     </motion.div>
@@ -30,7 +30,7 @@ export default function HeroBanner() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3 }}
-                        className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight"
+                        className="text-3xl md:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight"
                     >
                         2 Goals Ahead <br />
                         <span className="text-boabet-yellow">Early Payout</span>
@@ -40,7 +40,7 @@ export default function HeroBanner() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.4 }}
-                        className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-lg mx-auto md:mx-0"
+                        className="text-base md:text-xl text-white/90 mb-8 md:mb-10 leading-relaxed max-w-lg mx-auto md:mx-0"
                     >
                         Get your single bets paid out instantly if your team goes 2 goals ahead. Available on over 80 leagues.
                     </motion.p>
@@ -49,18 +49,18 @@ export default function HeroBanner() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5 }}
-                        className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+                        className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center md:justify-start"
                     >
                         <Link
                             href="#"
-                            className="inline-flex items-center justify-center gap-2 bg-white text-boabet-green font-bold py-4 px-8 rounded-xl hover:bg-gray-50 transition-all transform hover:-translate-y-1 shadow-lg"
+                            className="inline-flex items-center justify-center gap-2 bg-white text-boabet-green font-bold py-3 px-6 md:py-4 md:px-8 rounded-xl hover:bg-gray-50 transition-all transform hover:-translate-y-1 shadow-lg text-sm md:text-base"
                         >
                             Join Now
-                            <ArrowRight size={20} />
+                            <ArrowRight size={18} className="md:w-5 md:h-5" />
                         </Link>
                         <Link
                             href="#"
-                            className="inline-flex items-center justify-center gap-2 bg-transparent border-2 border-white/30 text-white font-bold py-4 px-8 rounded-xl hover:bg-white/10 transition-all"
+                            className="inline-flex items-center justify-center gap-2 bg-transparent border-2 border-white/30 text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-xl hover:bg-white/10 transition-all text-sm md:text-base"
                         >
                             View Details
                         </Link>
